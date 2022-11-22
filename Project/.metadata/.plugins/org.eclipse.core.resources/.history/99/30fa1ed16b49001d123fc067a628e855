@@ -1,0 +1,19 @@
+/*
+ * Ultrasonic.h
+ *
+ *  Created on: Oct 11, 2022
+ *      Author: Asus
+ */
+
+#ifndef ULTRASONIC_H_
+#define ULTRASONIC_H_
+
+
+
+
+/*******************************************************************************
+ *                      Functions Prototypes                                   *
+ *******************************************************************************/
+
+void Ultrasonic_init(void){}
+#endif /* ULTRASONIC_H_ */

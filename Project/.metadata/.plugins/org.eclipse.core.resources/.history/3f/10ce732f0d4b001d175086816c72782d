@@ -1,0 +1,48 @@
+/*
+ * main.c
+ *
+ *  Created on: Oct 11, 2022
+ *      Author: Mohamed Elshaer
+ */
+#include "Ultrasonic.h"
+#include "lcd.h"
+#include <avr/io.h>
+#include "common_macros.h"
+#include "icu.h"
+
+void main(void) {
+
+	LCD_init();
+
+	Ultrasonic_init();
+
+	SET_BIT(SREG, 7);
+
+	uint16 distance = 0;
+
+	LCD_displayString("Distance =    cm");
+
+	LCD_moveCursor(1, 6);
+	LCD_displayString("4x16");
+	LCD_moveCursor(2, 1);
+	LCD_displayString("Mohamed Elshaer");
+
+	LCD_moveCursor(0, 11);
+	LCD_intgerToString(distance);
+
+	while (1) {
+
+			distance = Ultrasonic_readDistance();
+
+			LCD_moveCursor(0, 11);
+			LCD_intgerToString(distance);
+
+			if (distance < 100) {
+				LCD_displayCharacter(' ');
+
+
+
+		}
+	}
+}
+
